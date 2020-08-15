@@ -1,0 +1,24 @@
+[gd_scene load_steps=4 format=2]
+
+[ext_resource path="res://people/Player.tscn" type="PackedScene" id=1]
+[ext_resource path="res://WallsTileMap.tscn" type="PackedScene" id=2]
+[ext_resource path="res://objects/PickupAble.tscn" type="PackedScene" id=3]
+
+[node name="Playground" type="Node2D"]
+
+[node name="Player" parent="." instance=ExtResource( 1 )]
+position = Vector2( 96, 96 )
+
+[node name="TileMap" parent="." instance=ExtResource( 2 )]
+tile_data = PoolIntArray( 65537, 0, 0, 131073, 0, 65536, 196609, 0, 65536, 262145, 0, 65536, 327681, 0, 65536, 393217, 0, 65536, 458753, 0, 65536, 524289, 0, 65536, 589825, 0, 131072 )
+
+[node name="Key" parent="." instance=ExtResource( 3 )]
+position = Vector2( 210, 42 )
+
+[node name="Shovel" parent="." instance=ExtResource( 3 )]
+position = Vector2( 210, 70 )
+objectType = "shovel"
+
+[node name="Pickaxe" parent="." instance=ExtResource( 3 )]
+position = Vector2( 210, 98 )
+objectType = "pickaxe"

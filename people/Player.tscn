@@ -1,0 +1,39 @@
+[gd_scene load_steps=6 format=2]
+
+[ext_resource path="res://assets/colored_transparent_packed.png" type="Texture" id=1]
+[ext_resource path="res://people/Player.gd" type="Script" id=2]
+[ext_resource path="res://people/PlayerHand.tscn" type="PackedScene" id=3]
+
+[sub_resource type="CircleShape2D" id=1]
+radius = 6.0
+
+[sub_resource type="CircleShape2D" id=2]
+radius = 20.0
+
+[node name="Player" type="KinematicBody2D"]
+collision_mask = 3
+script = ExtResource( 2 )
+
+[node name="HeadCollision" type="CollisionShape2D" parent="."]
+position = Vector2( 0, -5 )
+shape = SubResource( 1 )
+
+[node name="Head" type="Sprite" parent="."]
+position = Vector2( 0, -5 )
+texture = ExtResource( 1 )
+region_enabled = true
+region_rect = Rect2( 544, 192, 16, 16 )
+
+[node name="PickUpDetect" type="Area2D" parent="."]
+collision_mask = 4
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="PickUpDetect"]
+shape = SubResource( 2 )
+
+[node name="LeftHand" parent="." instance=ExtResource( 3 )]
+position = Vector2( -8, 9 )
+rotation = 0.785398
+
+[node name="RightHand" parent="." instance=ExtResource( 3 )]
+position = Vector2( 13, 7 )
+rotation = 0.523599
