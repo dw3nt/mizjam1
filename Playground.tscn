@@ -1,8 +1,13 @@
-[gd_scene load_steps=4 format=2]
+[gd_scene load_steps=9 format=2]
 
 [ext_resource path="res://people/Player.tscn" type="PackedScene" id=1]
 [ext_resource path="res://WallsTileMap.tscn" type="PackedScene" id=2]
-[ext_resource path="res://objects/PickupAble.tscn" type="PackedScene" id=3]
+[ext_resource path="res://objects/Key.tscn" type="PackedScene" id=3]
+[ext_resource path="res://objects/Shovel.tscn" type="PackedScene" id=4]
+[ext_resource path="res://objects/Pickaxe.tscn" type="PackedScene" id=5]
+[ext_resource path="res://objects/LockedDoor.tscn" type="PackedScene" id=6]
+[ext_resource path="res://objects/BreakableWall.tscn" type="PackedScene" id=7]
+[ext_resource path="res://objects/DiggableDirt.tscn" type="PackedScene" id=8]
 
 [node name="Playground" type="Node2D"]
 
@@ -13,12 +18,21 @@ position = Vector2( 96, 96 )
 tile_data = PoolIntArray( 65537, 0, 0, 131073, 0, 65536, 196609, 0, 65536, 262145, 0, 65536, 327681, 0, 65536, 393217, 0, 65536, 458753, 0, 65536, 524289, 0, 65536, 589825, 0, 131072 )
 
 [node name="Key" parent="." instance=ExtResource( 3 )]
-position = Vector2( 210, 42 )
+position = Vector2( 182, 56 )
 
-[node name="Shovel" parent="." instance=ExtResource( 3 )]
-position = Vector2( 210, 70 )
-objectType = "shovel"
+[node name="Shovel" parent="." instance=ExtResource( 4 )]
+position = Vector2( 182, 96 )
 
-[node name="Pickaxe" parent="." instance=ExtResource( 3 )]
-position = Vector2( 210, 98 )
-objectType = "pickaxe"
+[node name="PickupAble" parent="." instance=ExtResource( 5 )]
+position = Vector2( 182, 140 )
+
+[node name="LockedDoor" parent="." instance=ExtResource( 6 )]
+position = Vector2( 238, 14 )
+collision_layer = 18
+
+[node name="BreakableWall" parent="." instance=ExtResource( 7 )]
+position = Vector2( 238, 168 )
+maxHits = 3
+
+[node name="DiggableDirt" parent="." instance=ExtResource( 8 )]
+position = Vector2( 266, 84 )

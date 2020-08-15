@@ -1,31 +1,26 @@
-extends Area2D
-
-export(String, "key", "shovel", "pickaxe") var objectType = "key"
+extends Node2D
 
 var isHeld = false
 
-var spriteRegionMap = {
-	"key": Rect2(512, 176, 16, 16),
-	"shovel": Rect2(672, 80, 16, 16),
-	"pickaxe": Rect2(688, 80, 16, 16),
-}
-
-var spriteRotateMap = {
-	"key": 0,
-	"shovel": 45,
-	"pickaxe": -45
-}
-
-var spriteOffsetMap = {
-	"key": Vector2.ZERO,
-	"shovel": Vector2(4, 0),
-	"pickaxe": Vector2(1, -3)
-}
-
 onready var sprite = $Sprite
+onready var hitboxCollision = $Hitbox/CollisionShape2D
 
 
 func _ready():
-	sprite.region_rect = spriteRegionMap[objectType]
-	sprite.rotation_degrees = spriteRotateMap[objectType]
-	sprite.offset = spriteOffsetMap[objectType]
+	hitboxCollision.disabled = true
+
+
+func _on_Hitbox_area_entered(area):
+	area.handleHitboxHit()
+
+
+func _on_Hitbox_area_exited(area):
+	pass
+
+
+func _on_Hitbox_body_entered(body):
+	body.handleHitboxHit()
+
+
+func _on_Hitbox_body_exited(body):
+	pass

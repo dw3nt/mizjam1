@@ -1,22 +1,226 @@
-[gd_scene load_steps=6 format=2]
+[gd_scene load_steps=10 format=2]
 
 [ext_resource path="res://assets/colored_transparent_packed.png" type="Texture" id=1]
 [ext_resource path="res://people/Player.gd" type="Script" id=2]
 [ext_resource path="res://people/PlayerHand.tscn" type="PackedScene" id=3]
 
-[sub_resource type="CircleShape2D" id=1]
+[sub_resource type="CapsuleShape2D" id=7]
 radius = 6.0
+height = 10.0
 
 [sub_resource type="CircleShape2D" id=2]
 radius = 20.0
+
+[sub_resource type="Animation" id=3]
+resource_name = "use_left_back_item"
+length = 0.45
+step = 0.05
+tracks/0/type = "value"
+tracks/0/path = NodePath("LeftHand:position")
+tracks/0/interp = 2
+tracks/0/loop_wrap = true
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/keys = {
+"times": PoolRealArray( 0, 0.15, 0.3, 0.45 ),
+"transitions": PoolRealArray( 1, 1, 1, 1 ),
+"update": 0,
+"values": [ Vector2( 8, -24 ), Vector2( 24, -8 ), Vector2( 8, 8 ), Vector2( -8, 9 ) ]
+}
+tracks/1/type = "method"
+tracks/1/path = NodePath(".")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/keys = {
+"times": PoolRealArray( 0, 0.45 ),
+"transitions": PoolRealArray( 1, 1 ),
+"values": [ {
+"args": [ NodePath("LeftHand"), false ],
+"method": "setHandItemHitboxCollision"
+}, {
+"args": [ NodePath("LeftHand"), true ],
+"method": "setHandItemHitboxCollision"
+} ]
+}
+tracks/2/type = "method"
+tracks/2/path = NodePath(".")
+tracks/2/interp = 1
+tracks/2/loop_wrap = true
+tracks/2/imported = false
+tracks/2/enabled = true
+tracks/2/keys = {
+"times": PoolRealArray( 0, 0.45 ),
+"transitions": PoolRealArray( 1, 1 ),
+"values": [ {
+"args": [ true ],
+"method": "setUsingItem"
+}, {
+"args": [ false ],
+"method": "setUsingItem"
+} ]
+}
+
+[sub_resource type="Animation" id=5]
+resource_name = "use_left_front_item"
+length = 0.45
+step = 0.05
+tracks/0/type = "value"
+tracks/0/path = NodePath("LeftHand:position")
+tracks/0/interp = 2
+tracks/0/loop_wrap = true
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/keys = {
+"times": PoolRealArray( 0, 0.15, 0.3, 0.45 ),
+"transitions": PoolRealArray( 1, 1, 1, 1 ),
+"update": 0,
+"values": [ Vector2( -8, -24 ), Vector2( -24, -8 ), Vector2( -8, 8 ), Vector2( -8, 9 ) ]
+}
+tracks/1/type = "method"
+tracks/1/path = NodePath(".")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/keys = {
+"times": PoolRealArray( 0, 0.45 ),
+"transitions": PoolRealArray( 1, 1 ),
+"values": [ {
+"args": [ NodePath("LeftHand"), false ],
+"method": "setHandItemHitboxCollision"
+}, {
+"args": [ NodePath("LeftHand"), true ],
+"method": "setHandItemHitboxCollision"
+} ]
+}
+tracks/2/type = "method"
+tracks/2/path = NodePath(".")
+tracks/2/interp = 1
+tracks/2/loop_wrap = true
+tracks/2/imported = false
+tracks/2/enabled = true
+tracks/2/keys = {
+"times": PoolRealArray( 0, 0.45 ),
+"transitions": PoolRealArray( 1, 1 ),
+"values": [ {
+"args": [ true ],
+"method": "setUsingItem"
+}, {
+"args": [ false ],
+"method": "setUsingItem"
+} ]
+}
+
+[sub_resource type="Animation" id=6]
+resource_name = "use_right_back_item"
+length = 0.45
+step = 0.05
+tracks/0/type = "value"
+tracks/0/path = NodePath("RightHand:position")
+tracks/0/interp = 2
+tracks/0/loop_wrap = true
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/keys = {
+"times": PoolRealArray( 0, 0.15, 0.3, 0.45 ),
+"transitions": PoolRealArray( 1, 1, 1, 1 ),
+"update": 0,
+"values": [ Vector2( -8, -24 ), Vector2( -24, -8 ), Vector2( -8, 8 ), Vector2( 13, 9 ) ]
+}
+tracks/1/type = "method"
+tracks/1/path = NodePath(".")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/keys = {
+"times": PoolRealArray( 0, 0.45 ),
+"transitions": PoolRealArray( 1, 1 ),
+"values": [ {
+"args": [ NodePath("RightHand"), false ],
+"method": "setHandItemHitboxCollision"
+}, {
+"args": [ NodePath("RightHand"), true ],
+"method": "setHandItemHitboxCollision"
+} ]
+}
+tracks/2/type = "method"
+tracks/2/path = NodePath(".")
+tracks/2/interp = 1
+tracks/2/loop_wrap = true
+tracks/2/imported = false
+tracks/2/enabled = true
+tracks/2/keys = {
+"times": PoolRealArray( 0, 0.45 ),
+"transitions": PoolRealArray( 1, 1 ),
+"values": [ {
+"args": [ true ],
+"method": "setUsingItem"
+}, {
+"args": [ false ],
+"method": "setUsingItem"
+} ]
+}
+
+[sub_resource type="Animation" id=4]
+resource_name = "use_right_front_item"
+length = 0.45
+step = 0.05
+tracks/0/type = "value"
+tracks/0/path = NodePath("RightHand:position")
+tracks/0/interp = 2
+tracks/0/loop_wrap = true
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/keys = {
+"times": PoolRealArray( 0, 0.15, 0.35 ),
+"transitions": PoolRealArray( 1, 1, 1 ),
+"update": 0,
+"values": [ Vector2( 8, -24 ), Vector2( 24, -8 ), Vector2( 13, 9 ) ]
+}
+tracks/1/type = "method"
+tracks/1/path = NodePath(".")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/keys = {
+"times": PoolRealArray( 0, 0.45 ),
+"transitions": PoolRealArray( 1, 1 ),
+"values": [ {
+"args": [ NodePath("RightHand"), false ],
+"method": "setHandItemHitboxCollision"
+}, {
+"args": [ NodePath("RightHand"), true ],
+"method": "setHandItemHitboxCollision"
+} ]
+}
+tracks/2/type = "method"
+tracks/2/path = NodePath(".")
+tracks/2/interp = 1
+tracks/2/loop_wrap = true
+tracks/2/imported = false
+tracks/2/enabled = true
+tracks/2/keys = {
+"times": PoolRealArray( 0, 0.45 ),
+"transitions": PoolRealArray( 1, 1 ),
+"values": [ {
+"args": [ true ],
+"method": "setUsingItem"
+}, {
+"args": [ false ],
+"method": "setUsingItem"
+} ]
+}
 
 [node name="Player" type="KinematicBody2D"]
 collision_mask = 3
 script = ExtResource( 2 )
 
 [node name="HeadCollision" type="CollisionShape2D" parent="."]
-position = Vector2( 0, -5 )
-shape = SubResource( 1 )
+shape = SubResource( 7 )
 
 [node name="Head" type="Sprite" parent="."]
 position = Vector2( 0, -5 )
@@ -35,5 +239,11 @@ position = Vector2( -8, 9 )
 rotation = 0.785398
 
 [node name="RightHand" parent="." instance=ExtResource( 3 )]
-position = Vector2( 13, 7 )
+position = Vector2( 13, 9 )
 rotation = 0.523599
+
+[node name="AnimationPlayer" type="AnimationPlayer" parent="."]
+anims/use_left_back_item = SubResource( 3 )
+anims/use_left_front_item = SubResource( 5 )
+anims/use_right_back_item = SubResource( 6 )
+anims/use_right_front_item = SubResource( 4 )

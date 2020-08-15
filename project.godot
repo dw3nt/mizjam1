@@ -76,6 +76,12 @@ use_right_item={
 2d_physics/layer_1="person"
 2d_physics/layer_2="wall"
 2d_physics/layer_3="object"
+2d_physics/layer_4="key"
+2d_physics/layer_5="door"
+2d_physics/layer_6="shovel"
+2d_physics/layer_7="dirt"
+2d_physics/layer_8="pickaxe"
+2d_physics/layer_9="breakable"
 
 [rendering]
 
