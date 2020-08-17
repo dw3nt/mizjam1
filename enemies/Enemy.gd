@@ -2,6 +2,7 @@ extends KinematicBody2D
 
 const MOVE_SPEED = 50
 
+var hp = 2
 var ready = false
 var path = [] setget setPath
 var nextPathPoint = null
@@ -20,6 +21,12 @@ func _ready():
 
 func destroy():
 	queue_free()
+
+
+func handleHitboxHit():
+	set_physics_process(false)
+	hp -= 1
+	animation.play("damaged")
 
 
 func _physics_process(_delta):
@@ -47,3 +54,11 @@ func setPath(val):
 	path = val
 	if val.size() > 0 && ready:
 		enablePathing()
+		
+
+func _on_AnimationPlayer_animation_finished(anim_name):
+	if anim_name == "damaged":
+		if hp <= 0:
+			destroy()
+		else:
+			enablePathing()
