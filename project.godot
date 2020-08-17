@@ -19,10 +19,6 @@ config/name="Miz Jam 1"
 run/main_scene="res://Playground.tscn"
 config/icon="res://icon.png"
 
-[autoload]
-
-GameManager="*res://GameManager.tscn"
-
 [display]
 
 window/size/width=512
@@ -86,6 +82,8 @@ use_right_item={
 2d_physics/layer_7="dirt"
 2d_physics/layer_8="pickaxe"
 2d_physics/layer_9="breakable"
+2d_physics/layer_10="goal"
+2d_physics/layer_11="enemy"
 
 [rendering]
 

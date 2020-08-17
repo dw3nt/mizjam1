@@ -1,7 +1,5 @@
 extends KinematicBody2D
 
-signal goal_reached
-
 const MOVE_SPEED = 50
 
 var ready = false
@@ -18,6 +16,10 @@ func _ready():
 	set_physics_process(false)
 	if path.size() > 0:
 		enablePathing()
+		
+
+func destroy():
+	queue_free()
 
 
 func _physics_process(_delta):
@@ -27,8 +29,6 @@ func _physics_process(_delta):
 	if global_position.distance_to(nextPathPoint) < 4:
 		if path.size() > 1:
 			nextPathPoint = path[1]
-		else:
-			emit_signal("goal_reached")
 
 		path.remove(0)
 
