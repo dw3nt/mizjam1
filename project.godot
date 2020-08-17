@@ -84,6 +84,8 @@ use_right_item={
 2d_physics/layer_9="breakable"
 2d_physics/layer_10="goal"
 2d_physics/layer_11="enemy"
+2d_physics/layer_12="cauldron"
+2d_physics/layer_13="ingredient"
 
 [rendering]
 

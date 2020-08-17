@@ -33,5 +33,5 @@ func _on_SpawnTimer_timeout():
 	inst.path = path
 	enemyWrap.add_child(inst)
 
-	spawnTimer.wait_time = rand_range(1, 3)
+	spawnTimer.wait_time = rand_range(5, 8)
 	spawnTimer.start()

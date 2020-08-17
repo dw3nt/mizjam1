@@ -11,7 +11,7 @@ func _ready():
 
 
 func _on_Hitbox_area_entered(area):
-	area.handleHitboxHit()
+	area.handleHitboxHit(self)
 
 
 func _on_Hitbox_area_exited(area):
@@ -19,7 +19,7 @@ func _on_Hitbox_area_exited(area):
 
 
 func _on_Hitbox_body_entered(body):
-	body.handleHitboxHit()
+	body.handleHitboxHit(self)
 
 
 func _on_Hitbox_body_exited(body):

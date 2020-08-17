@@ -13,7 +13,6 @@ func _ready():
 
 
 func _on_Goal_updated_hp(diff):
-    print(diff)
     if diff < 0:
         ui.removeTownHp()
     else:

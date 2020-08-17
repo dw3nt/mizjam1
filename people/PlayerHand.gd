@@ -13,7 +13,6 @@ func pickUpItem(_item):
 		get_tree().current_scene.add_child(itemDupe)
 		itemDupe.global_position = global_position
 
-	print(_item.name)
 	item = _item.duplicate()
 	_item.queue_free()
 
