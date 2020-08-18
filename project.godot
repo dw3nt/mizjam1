@@ -10,11 +10,17 @@ config_version=4
 
 _global_script_classes=[ {
 "base": "Node2D",
+"class": "EnemyStateMachine",
+"language": "GDScript",
+"path": "res://enemies/EnemyStateMachine.gd"
+}, {
+"base": "Node2D",
 "class": "MinionStateMachine",
 "language": "GDScript",
 "path": "res://people/MinionStateMachine.gd"
 } ]
 _global_script_class_icons={
+"EnemyStateMachine": "",
 "MinionStateMachine": ""
 }
 

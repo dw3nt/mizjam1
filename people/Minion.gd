@@ -4,7 +4,6 @@ export var hp = 10
 export var atk = 2 setget setAtk
 
 onready var minionStates = $MinionStateMachine
-onready var chaseState = $MinionStateMachine/Chase
 
 
 func _ready():

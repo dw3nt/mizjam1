@@ -1,11 +1,12 @@
 extends Node2D
 
-class_name MinionStateMachine
+class_name EnemyStateMachine
 
 export(NodePath) var animationPath
 export(NodePath) var spritePath
 
 var state
+var path
 var velocity = Vector2.ZERO
 var damage
 
