@@ -1,5 +1,6 @@
 extends StaticBody2D
 
+const NO_RECIPE_LOOP_MAX = 2
 const RECIPES = [
 	{
 		"ingredients": ["Bones", "MageCloak", "MageStaff"],
@@ -9,10 +10,13 @@ const RECIPES = [
 
 export(NodePath) var minionWrapPath
 
+var noRecipeLoops = 0
 var itemsHeld = []
 
+onready var sprite = $Sprite
 onready var itemsHeldWrap = $ItemsHeld
 onready var spawnPoint = $SpawnPoint
+onready var animation = $AnimationPlayer
 onready var minionWrap = get_node(minionWrapPath)
 
 
@@ -28,16 +32,37 @@ func handleHitboxHit(hitter):
 			hitter.queue_free()
 			
 			item.position = Vector2.ZERO
+			item.isGrabable = false
 			itemsHeldWrap.get_child(itemsHeld.size() - 1).add_child(item)
 		
 	if itemsHeld.size() >= 3:
-		itemsHeld = itemsHeld.sort()
+		var sortedItems = itemsHeld.duplicate()
+		sortedItems.sort()
+		var itemCreated = false
 		for key in range(RECIPES.size()):
-			if itemsHeld == RECIPES[key]["ingredients"].sort():
-				print(RECIPES[key]["scene"])
+			var orderedRecipe = RECIPES[key]["ingredients"].duplicate()
+			orderedRecipe.sort()
+			if arraysMatch(sortedItems, orderedRecipe):
 				var inst = RECIPES[key]["scene"].instance()
 				inst.global_position = spawnPoint.global_position
 				minionWrap.add_child(inst)
+				itemCreated = true
+				
+		if !itemCreated:
+			animation.play("no_recipe")
+		else:
+			emptyCauldron(true)
+
+
+func arraysMatch(arr1, arr2):
+	if arr1.size() != arr2.size():
+		return false
+
+	for key in range(arr2.size()):
+		if arr1[key] != arr2[key]:
+			return false
+	
+	return true
 		
 
 func getSimpleFileName(obj):
@@ -50,3 +75,25 @@ func getSimpleFileName(obj):
 			return filename.substr(startPos, endPos - startPos)
 
 	return ""
+
+
+func emptyCauldron(isItemsUsed):
+	for key in range(itemsHeld.size()):
+		var item = itemsHeldWrap.get_child(key).get_child(0)
+		if !isItemsUsed:
+			var _item = item.duplicate()
+			_item.global_position = item.global_position
+			_item.global_position.y += 20
+			get_parent().add_child(_item)
+
+		item.queue_free()
+
+	itemsHeld = []
+
+
+func countNoRecipeLoop():
+	noRecipeLoops += 1
+	if noRecipeLoops >= NO_RECIPE_LOOP_MAX:
+		animation.stop()
+		noRecipeLoops = 0
+		emptyCauldron(false)

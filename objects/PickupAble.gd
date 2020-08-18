@@ -1,6 +1,7 @@
 extends Node2D
 
 var isHeld = false
+var isGrabable = true
 
 onready var sprite = $Sprite
 onready var hitboxCollision = $Hitbox/CollisionShape2D

@@ -47,7 +47,7 @@ func processPickUpInput(event):
 				var closestItem = null
 				for item in pickUpArea.get_overlapping_areas():
 					var pickupAbleNode = item.get_parent()
-					if !pickupAbleNode.isHeld:
+					if !pickupAbleNode.isHeld && pickupAbleNode.isGrabable:
 						if closestItem:
 							if global_position.distance_to(item.global_position) < global_position.distance_to(closestItem.global_position):
 								closestItem = pickupAbleNode
