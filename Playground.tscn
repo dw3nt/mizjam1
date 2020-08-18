@@ -50,7 +50,7 @@ enemyWrapPath = NodePath("../EnemyWrap")
 [node name="MinionWrap" type="Node2D" parent="."]
 
 [node name="Minion" parent="MinionWrap" instance=ExtResource( 19 )]
-position = Vector2( 96, 252 )
+position = Vector2( 406, 176 )
 
 [node name="Walls" parent="." instance=ExtResource( 3 )]
 tile_data = PoolIntArray( 1179675, 0, 0, 1179676, 0, 1, 1179677, 0, 1, 1179678, 0, 1, 1179680, 0, 1, 1179681, 0, 1, 1179682, 0, 1, 1179683, 0, 1, 1179684, 0, 2, 1245211, 0, 65536, 1245220, 0, 65538, 1310747, 0, 65536, 1310756, 0, 65538, 1376283, 0, 131072, 1376284, 0, 131073, 1376285, 0, 131073, 1376286, 0, 131073, 1376287, 0, 131073, 1376288, 0, 131073, 1376289, 0, 131073, 1376290, 0, 131073, 1376291, 0, 131073, 1376292, 0, 131074 )
@@ -64,7 +64,7 @@ position = Vector2( 406, 22 )
 [node name="UI" parent="." instance=ExtResource( 7 )]
 
 [node name="Sword" parent="." instance=ExtResource( 8 )]
-position = Vector2( 98, 160 )
+position = Vector2( 98, 112 )
 
 [node name="BreakableWall" parent="." instance=ExtResource( 10 )]
 position = Vector2( 462, 106 )
@@ -83,20 +83,20 @@ position = Vector2( 389, 64 )
 position = Vector2( 34, 46 )
 
 [node name="Bones3" parent="." instance=ExtResource( 16 )]
-position = Vector2( 112, 64 )
+position = Vector2( 84, 236 )
 
 [node name="Cauldron" parent="." instance=ExtResource( 15 )]
-position = Vector2( 154, 98 )
+position = Vector2( 168, 228 )
 minionWrapPath = NodePath("../MinionWrap")
 
 [node name="MageCloak" parent="." instance=ExtResource( 17 )]
-position = Vector2( 154, 64 )
+position = Vector2( 126, 236 )
 
 [node name="MageCloak2" parent="." instance=ExtResource( 17 )]
-position = Vector2( 182, 64 )
+position = Vector2( 34, 252 )
 
 [node name="MageStaff" parent="." instance=ExtResource( 18 )]
-position = Vector2( 104, 98 )
+position = Vector2( 76, 270 )
 
 [node name="Helmet" parent="." instance=ExtResource( 20 )]
-position = Vector2( 168, 38 )
+position = Vector2( 112, 70 )

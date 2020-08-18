@@ -20,7 +20,7 @@ onready var animation = $AnimationPlayer
 onready var minionWrap = get_node(minionWrapPath)
 
 
-func handleHitboxHit(hitter):
+func handleHitboxHit(hitter, damage):
 	if itemsHeld.size() < 3:
 		var type = getSimpleFileName(hitter)
 		if itemsHeld.find(type) < 0:

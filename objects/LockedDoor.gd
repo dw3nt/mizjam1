@@ -1,5 +1,5 @@
 extends StaticBody2D
 
 
-func handleHitboxHit(hitter):
+func handleHitboxHit(hitter, damage):
     queue_free()

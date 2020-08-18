@@ -16,7 +16,7 @@ func _ready():
     sprite.region_rect = hitRegions[hits]
 
 
-func handleHitboxHit(hitter):
+func handleHitboxHit(hitter, damage):
     hits += 1
     if hits >= maxHits:
         queue_free()

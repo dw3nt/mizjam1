@@ -23,9 +23,9 @@ func destroy():
 	queue_free()
 
 
-func handleHitboxHit():
+func handleHitboxHit(hitter, damage):
 	set_physics_process(false)
-	hp -= 1
+	hp -= damage
 	animation.play("damaged")
 
 
@@ -62,3 +62,8 @@ func _on_AnimationPlayer_animation_finished(anim_name):
 			destroy()
 		else:
 			enablePathing()
+
+
+func _on_MinionDetect_body_entered(body):
+	set_physics_process(false)
+	animation.play("idle")

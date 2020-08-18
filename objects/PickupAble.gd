@@ -1,5 +1,7 @@
 extends Node2D
 
+export var damage = 1
+
 var isHeld = false
 var isGrabable = true
 
@@ -12,7 +14,7 @@ func _ready():
 
 
 func _on_Hitbox_area_entered(area):
-	area.handleHitboxHit(self)
+	area.handleHitboxHit(self, damage)
 
 
 func _on_Hitbox_area_exited(area):
@@ -20,7 +22,7 @@ func _on_Hitbox_area_exited(area):
 
 
 func _on_Hitbox_body_entered(body):
-	body.handleHitboxHit(self)
+	body.handleHitboxHit(self, damage)
 
 
 func _on_Hitbox_body_exited(body):

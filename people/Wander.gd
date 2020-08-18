@@ -12,6 +12,7 @@ var fsm
 var moveDir = Vector2.ZERO
 
 onready var chooseDirectionTimer = $ChooseDirectionTimer
+onready var chaseEnemyDetect = $ChaseEnemyDetect
 
 
 func _ready():
@@ -26,7 +27,7 @@ func physics_process(delta):
 		fsm.animation.play("run")
 	
 
-func enter_state():
+func enter_state(args):
 	fsm.animation.play("idle")
 
 
@@ -39,3 +40,8 @@ func chooseDirection():
 
 func _on_ChooseDirectionTimer_timeout():
 	chooseDirection()
+
+
+func _on_ChaseEnemyDetect_body_entered(body):
+	if fsm.state == self:
+		fsm.change_state("Chase", [body])
