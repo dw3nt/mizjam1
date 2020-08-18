@@ -89,3 +89,7 @@ animationPath = NodePath("../AnimationPlayer")
 
 [node name="Wander" type="Node2D" parent="MinionStateMachine"]
 script = ExtResource( 4 )
+
+[node name="ChooseDirectionTimer" type="Timer" parent="MinionStateMachine/Wander"]
+autostart = true
+[connection signal="timeout" from="MinionStateMachine/Wander/ChooseDirectionTimer" to="MinionStateMachine/Wander" method="_on_ChooseDirectionTimer_timeout"]

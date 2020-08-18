@@ -5,6 +5,7 @@ class_name MinionStateMachine
 export(NodePath) var animationPath
 
 var state
+var velocity = Vector2.ZERO
 
 onready var animation = get_node(animationPath)
 
