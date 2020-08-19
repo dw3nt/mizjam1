@@ -101,6 +101,8 @@ shape = SubResource( 5 )
 
 [node name="EnemyStateMachine" type="Node2D" parent="."]
 script = ExtResource( 3 )
+animationPath = NodePath("../AnimationPlayer")
+spritePath = NodePath("../Sprite")
 
 [node name="ChaseGoal" type="Node2D" parent="EnemyStateMachine"]
 script = ExtResource( 4 )

@@ -7,7 +7,7 @@ onready var end = $End
 
 
 func _ready():
-    var path = nav2d.get_simple_path(start.global_position, end.global_position)
-    line2d.points  = path
+	var path = nav2d.get_simple_path(start.global_position, end.global_position)
+	line2d.points  = path
 
-    print(path)
+	print(path)

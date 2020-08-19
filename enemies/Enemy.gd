@@ -1,7 +1,5 @@
 extends KinematicBody2D
 
-const MOVE_SPEED = 50
-
 export var hp = 2
 export var atk = 1 setget setAtk
 
@@ -11,8 +9,9 @@ onready var enemyStates = $EnemyStateMachine
 
 
 func _ready():
-	enemyStates.ready()
 	enemyStates.damage = atk
+	enemyStates.path = path
+	enemyStates.ready()
 
 
 func _process(delta):
@@ -24,6 +23,10 @@ func _physics_process(delta):
 	move_and_slide(enemyStates.velocity)
 
 
+func destroy():
+	queue_free()
+
+
 func setAtk(val):
 	atk = val
 	if enemyStates:
@@ -32,5 +35,5 @@ func setAtk(val):
 
 func setPath(val):
 	path = val
-	if enemyStates:
+	if enemyStates && path.size() > 0:
 		enemyStates.path = path
