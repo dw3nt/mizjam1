@@ -1,5 +1,7 @@
 extends MinionStateMachine
 
+const ATTACK_TIME_MIN = 0.75
+const ATTACK_TIME_MAX = 1.5
 const CHARGE_DISTANCE = 8
 const ATTACK_DISTANCE = 6
 enum ATTACK_TWEENS { Charging, Attacking, Resetting }
@@ -8,9 +10,11 @@ var fsm
 var target = null
 var spriteStartPos = null
 var currentTween = null
+var attackTimeOffset = 0
+var tween
 
-onready var tween = $Tween
 onready var attackTimer = $AttackTimer
+onready var attackRangeDetect = $AttackRangeDetect
 
 
 func _ready():
@@ -26,20 +30,34 @@ func process(delta):
 func enter_state(args):
 	fsm.animation.play("idle")
 	fsm.velocity = Vector2.ZERO
+
+	tween = Tween.new()
+	tween.connect("tween_all_completed", self, "_on_Tween_tween_all_completed")
+	add_child(tween)
+	currentTween = null
+	attackTimeOffset = 0
 	target = args[0]
 	spriteStartPos = fsm.sprite.position
-	attackTimer.start()
+
+	startAttackTimer()
 	
 
 func exit_state():
 	target = null
+	attackTimer.stop()
 	tween.stop_all()
+	tween.queue_free()
 	fsm.sprite.position = spriteStartPos
 	
 
 func targetExists():
 	var wr = weakref(target)
 	return wr.get_ref()
+
+
+func startAttackTimer():
+	attackTimer.wait_time = rand_range(ATTACK_TIME_MIN, ATTACK_TIME_MAX) + attackTimeOffset
+	attackTimer.start()
 	
 
 func playChargeTween():
@@ -80,9 +98,15 @@ func _on_Tween_tween_all_completed():
 			playResetTween()
 
 		ATTACK_TWEENS.Resetting:
-			attackTimer.start()
+			startAttackTimer()
 		
 
 func _on_AttackTimer_timeout():
 	if targetExists():
+		attackTimeOffset = 2
 		playChargeTween()
+
+
+func _on_AttackRangeDetect_body_exited(body):
+	if fsm != null && fsm.state == self && body == target:
+		fsm.change_state("Chase", [body])

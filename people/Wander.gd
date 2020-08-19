@@ -30,6 +30,20 @@ func physics_process(delta):
 func enter_state(args):
 	fsm.animation.play("idle")
 
+	var otherTargets = chaseEnemyDetect.get_overlapping_bodies()
+	if otherTargets.size() > 0:
+		var closestTarget = null
+		for potentialTarget in otherTargets:
+			if !closestTarget:
+				closestTarget = potentialTarget
+			else:
+				var distanceToClosest = global_position.distance_to(closestTarget.global_position)
+				var distanceToPotential = global_position.distance_to(potentialTarget.global_position)
+				if distanceToPotential < distanceToClosest:
+					closestTarget = potentialTarget
+
+		fsm.change_state("Chase", [closestTarget])
+
 
 func chooseDirection():
 	if randf() < 0.65:
@@ -43,5 +57,5 @@ func _on_ChooseDirectionTimer_timeout():
 
 
 func _on_ChaseEnemyDetect_body_entered(body):
-	if fsm.state == self:
+	if fsm != null && fsm.state == self:
 		fsm.change_state("Chase", [body])

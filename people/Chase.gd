@@ -32,5 +32,5 @@ func exit_state():
 
 
 func _on_AttackEnemyDetect_body_entered(body):
-	if fsm.state == self:
+	if fsm != null && fsm.state == self:
 		fsm.change_state("Attack", [body])

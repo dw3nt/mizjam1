@@ -1,14 +1,17 @@
 extends KinematicBody2D
 
-export var hp = 10
+export var hp = 1
 export var atk = 2 setget setAtk
 
 onready var minionStates = $MinionStateMachine
+onready var injuredState = $MinionStateMachine/Injured
 
 
 func _ready():
-	minionStates.ready()
+	injuredState.connect("dead", self, "_on_Injured_dead")
+
 	minionStates.damage = atk
+	minionStates.ready()
 
 
 func _process(delta):
@@ -21,7 +24,15 @@ func _physics_process(delta):
 
 
 func handleHitboxHit(hitter, damage):
-	print('hit by ' + str(hitter.name) + ' for ' + str(damage) + ' damage')
+	if minionStates.state.name != "Injured":
+		minionStates.change_state("Injured", [])
+		hp -= damage
+		if hp <= 0:
+			destroy()
+
+
+func destroy():
+	queue_free()
 
 
 func setAtk(val):

@@ -6,9 +6,12 @@ export var atk = 1 setget setAtk
 var path setget setPath
 
 onready var enemyStates = $EnemyStateMachine
+onready var injuredState = $EnemyStateMachine/Injured
 
 
 func _ready():
+	injuredState.connect("dead", self, "_on_Injured_dead")
+
 	enemyStates.damage = atk
 	enemyStates.path = path
 	enemyStates.ready()
@@ -25,6 +28,11 @@ func _physics_process(delta):
 
 func handleHitboxHit(hitter, damage):
 	print('hit by ' + str(hitter.name) + ' for ' + str(damage) + ' damage')
+	if enemyStates.state.name != "Injured":
+		enemyStates.change_state("Injured", [])
+		hp -= damage
+		if hp <= 0:
+			destroy()
 
 
 func destroy():

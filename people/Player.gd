@@ -40,6 +40,10 @@ func _input(event):
 		processUseItemInput(event)
 
 
+func handleHitboxHit(hitter, damage):
+	print('oh boy that tickled')
+
+
 func processPickUpInput(event):
 	if !isUsingItem:
 		for pickUpInput in pickUpInputMap.keys():
