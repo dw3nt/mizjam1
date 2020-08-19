@@ -23,6 +23,10 @@ func _physics_process(delta):
 	move_and_slide(enemyStates.velocity)
 
 
+func handleHitboxHit(hitter, damage):
+	print('hit by ' + str(hitter.name) + ' for ' + str(damage) + ' damage')
+
+
 func destroy():
 	queue_free()
 

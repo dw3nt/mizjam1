@@ -1,4 +1,4 @@
-[gd_scene load_steps=21 format=2]
+[gd_scene load_steps=32 format=2]
 
 [ext_resource path="res://people/Player.tscn" type="PackedScene" id=1]
 [ext_resource path="res://enemies/EnemySpawner.tscn" type="PackedScene" id=2]
@@ -18,8 +18,82 @@
 [ext_resource path="res://objects/Bones.tscn" type="PackedScene" id=16]
 [ext_resource path="res://objects/MageCloak.tscn" type="PackedScene" id=17]
 [ext_resource path="res://objects/MageStaff.tscn" type="PackedScene" id=18]
-[ext_resource path="res://people/Minion.tscn" type="PackedScene" id=19]
+[ext_resource path="res://assets/colored_transparent_packed.png" type="Texture" id=19]
 [ext_resource path="res://objects/Helmet.tscn" type="PackedScene" id=20]
+[ext_resource path="res://people/Minion.gd" type="Script" id=21]
+[ext_resource path="res://people/MinionStateMachine.gd" type="Script" id=22]
+[ext_resource path="res://people/Wander.gd" type="Script" id=23]
+[ext_resource path="res://people/Chase.gd" type="Script" id=24]
+[ext_resource path="res://people/Attack.gd" type="Script" id=25]
+
+[sub_resource type="CircleShape2D" id=1]
+radius = 6.0
+
+[sub_resource type="Animation" id=2]
+resource_name = "attack"
+
+[sub_resource type="Animation" id=3]
+resource_name = "idle"
+length = 0.05
+tracks/0/type = "value"
+tracks/0/path = NodePath("Sprite:position")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/keys = {
+"times": PoolRealArray( 0 ),
+"transitions": PoolRealArray( 1 ),
+"update": 0,
+"values": [ Vector2( 0, 0 ) ]
+}
+tracks/1/type = "value"
+tracks/1/path = NodePath("Sprite:rotation_degrees")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/keys = {
+"times": PoolRealArray( 0 ),
+"transitions": PoolRealArray( 1 ),
+"update": 0,
+"values": [ 0.0 ]
+}
+
+[sub_resource type="Animation" id=4]
+resource_name = "run"
+length = 0.8
+loop = true
+step = 0.05
+tracks/0/type = "value"
+tracks/0/path = NodePath("Sprite:position")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/keys = {
+"times": PoolRealArray( 0, 0.1, 0.3, 0.5, 0.6 ),
+"transitions": PoolRealArray( 1, 1, 1, 1, 1 ),
+"update": 0,
+"values": [ Vector2( 0, 0 ), Vector2( 0, -4 ), Vector2( 0, 0 ), Vector2( 0, -4 ), Vector2( 0, 0 ) ]
+}
+tracks/1/type = "value"
+tracks/1/path = NodePath("Sprite:rotation_degrees")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/keys = {
+"times": PoolRealArray( 0, 0.1, 0.5 ),
+"transitions": PoolRealArray( 1, 1, 1 ),
+"update": 0,
+"values": [ 0.0, -8.0, 8.0 ]
+}
+
+[sub_resource type="CircleShape2D" id=5]
+radius = 64.0
+
+[sub_resource type="CircleShape2D" id=6]
 
 [node name="Playground" type="Node2D"]
 script = ExtResource( 5 )
@@ -49,8 +123,62 @@ enemyWrapPath = NodePath("../EnemyWrap")
 
 [node name="MinionWrap" type="Node2D" parent="."]
 
-[node name="Minion" parent="MinionWrap" instance=ExtResource( 19 )]
-position = Vector2( -28, -28 )
+[node name="Minion" type="KinematicBody2D" parent="MinionWrap"]
+position = Vector2( 252, 140 )
+collision_mask = 1026
+script = ExtResource( 21 )
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="MinionWrap/Minion"]
+shape = SubResource( 1 )
+
+[node name="AnimationPlayer" type="AnimationPlayer" parent="MinionWrap/Minion"]
+autoplay = "idle"
+anims/attack = SubResource( 2 )
+anims/idle = SubResource( 3 )
+anims/run = SubResource( 4 )
+
+[node name="Sprite" type="Sprite" parent="MinionWrap/Minion"]
+texture = ExtResource( 19 )
+region_enabled = true
+region_rect = Rect2( 400, 32, 16, 16 )
+
+[node name="MinionStateMachine" type="Node2D" parent="MinionWrap/Minion"]
+script = ExtResource( 22 )
+animationPath = NodePath("../AnimationPlayer")
+spritePath = NodePath("../Sprite")
+
+[node name="Wander" type="Node2D" parent="MinionWrap/Minion/MinionStateMachine"]
+script = ExtResource( 23 )
+
+[node name="ChooseDirectionTimer" type="Timer" parent="MinionWrap/Minion/MinionStateMachine/Wander"]
+autostart = true
+
+[node name="ChaseEnemyDetect" type="Area2D" parent="MinionWrap/Minion/MinionStateMachine/Wander"]
+collision_layer = 0
+collision_mask = 1024
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="MinionWrap/Minion/MinionStateMachine/Wander/ChaseEnemyDetect"]
+shape = SubResource( 5 )
+disabled = true
+
+[node name="Chase" type="Node2D" parent="MinionWrap/Minion/MinionStateMachine"]
+script = ExtResource( 24 )
+
+[node name="AttackEnemyDetect" type="Area2D" parent="MinionWrap/Minion/MinionStateMachine/Chase"]
+collision_layer = 0
+collision_mask = 1024
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="MinionWrap/Minion/MinionStateMachine/Chase/AttackEnemyDetect"]
+shape = SubResource( 6 )
+disabled = true
+
+[node name="Attack" type="Node2D" parent="MinionWrap/Minion/MinionStateMachine"]
+script = ExtResource( 25 )
+
+[node name="Tween" type="Tween" parent="MinionWrap/Minion/MinionStateMachine/Attack"]
+
+[node name="AttackTimer" type="Timer" parent="MinionWrap/Minion/MinionStateMachine/Attack"]
+one_shot = true
 
 [node name="Walls" parent="." instance=ExtResource( 3 )]
 tile_data = PoolIntArray( 1179675, 0, 0, 1179676, 0, 1, 1179677, 0, 1, 1179678, 0, 1, 1179680, 0, 1, 1179681, 0, 1, 1179682, 0, 1, 1179683, 0, 1, 1179684, 0, 2, 1245211, 0, 65536, 1245220, 0, 65538, 1310747, 0, 65536, 1310756, 0, 65538, 1376283, 0, 131072, 1376284, 0, 131073, 1376285, 0, 131073, 1376286, 0, 131073, 1376287, 0, 131073, 1376288, 0, 131073, 1376289, 0, 131073, 1376290, 0, 131073, 1376291, 0, 131073, 1376292, 0, 131074 )
@@ -100,3 +228,8 @@ position = Vector2( 76, 270 )
 
 [node name="Helmet" parent="." instance=ExtResource( 20 )]
 position = Vector2( 112, 70 )
+[connection signal="timeout" from="MinionWrap/Minion/MinionStateMachine/Wander/ChooseDirectionTimer" to="MinionWrap/Minion/MinionStateMachine/Wander" method="_on_ChooseDirectionTimer_timeout"]
+[connection signal="body_entered" from="MinionWrap/Minion/MinionStateMachine/Wander/ChaseEnemyDetect" to="MinionWrap/Minion/MinionStateMachine/Wander" method="_on_ChaseEnemyDetect_body_entered"]
+[connection signal="body_entered" from="MinionWrap/Minion/MinionStateMachine/Chase/AttackEnemyDetect" to="MinionWrap/Minion/MinionStateMachine/Chase" method="_on_AttackEnemyDetect_body_entered"]
+[connection signal="tween_all_completed" from="MinionWrap/Minion/MinionStateMachine/Attack/Tween" to="MinionWrap/Minion/MinionStateMachine/Attack" method="_on_Tween_tween_all_completed"]
+[connection signal="timeout" from="MinionWrap/Minion/MinionStateMachine/Attack/AttackTimer" to="MinionWrap/Minion/MinionStateMachine/Attack" method="_on_AttackTimer_timeout"]
