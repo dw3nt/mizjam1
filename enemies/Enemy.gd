@@ -36,7 +36,6 @@ func _physics_process(delta):
 
 
 func handleHitboxHit(hitter, damage):
-	print('hit by ' + str(hitter.name) + ' for ' + str(damage) + ' damage')
 	if enemyStates.state.name != "Injured":
 		enemyStates.change_state("Injured", [])
 		hp -= damage
