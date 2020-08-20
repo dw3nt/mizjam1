@@ -5,6 +5,10 @@ const RECIPES = [
 	{
 		"ingredients": ["Bones", "MageCloak", "MageStaff"],
 		"scene": preload("res://people/MageMinion.tscn")
+	},
+	{
+		"ingredients": ["KnightSword", "KnightHelmet", "KnightShield"],
+		"scene": preload("res://people/KnightMinion.tscn")
 	}
 ]
 
@@ -34,6 +38,7 @@ func handleHitboxHit(hitter, damage):
 			item.position = Vector2.ZERO
 			item.isGrabable = false
 			itemsHeldWrap.get_child(itemsHeld.size() - 1).add_child(item)
+			item.sprite.position = Vector2.ZERO
 		
 	if itemsHeld.size() >= 3:
 		var sortedItems = itemsHeld.duplicate()

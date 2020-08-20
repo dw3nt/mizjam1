@@ -1,7 +1,5 @@
 extends MinionStateMachine
 
-signal dead
-
 var fsm
 
 

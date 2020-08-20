@@ -9,8 +9,13 @@ export(NodePath) var spritePath
 
 var state
 var velocity = Vector2.ZERO
-var damage
 var history = []
+var damage
+var wanderSpeed
+var chaseSpeed
+var minAttackSpeed
+var maxAttackSpeed
+var attackTimeOffset
 
 onready var animation = get_node(animationPath)
 onready var sprite = get_node(spritePath)

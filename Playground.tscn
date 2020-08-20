@@ -1,4 +1,4 @@
-[gd_scene load_steps=21 format=2]
+[gd_scene load_steps=23 format=2]
 
 [ext_resource path="res://people/Player.tscn" type="PackedScene" id=1]
 [ext_resource path="res://enemies/EnemySpawner.tscn" type="PackedScene" id=2]
@@ -19,7 +19,9 @@
 [ext_resource path="res://objects/MageCloak.tscn" type="PackedScene" id=17]
 [ext_resource path="res://objects/MageStaff.tscn" type="PackedScene" id=18]
 [ext_resource path="res://people/Minion.tscn" type="PackedScene" id=19]
-[ext_resource path="res://objects/Helmet.tscn" type="PackedScene" id=20]
+[ext_resource path="res://objects/KnightHelmet.tscn" type="PackedScene" id=20]
+[ext_resource path="res://objects/KnightShield.tscn" type="PackedScene" id=21]
+[ext_resource path="res://objects/KnightSword.tscn" type="PackedScene" id=22]
 
 [node name="Playground" type="Node2D"]
 script = ExtResource( 5 )
@@ -67,7 +69,7 @@ position = Vector2( 406, 22 )
 [node name="UI" parent="." instance=ExtResource( 7 )]
 
 [node name="Sword" parent="." instance=ExtResource( 8 )]
-position = Vector2( 98, 112 )
+position = Vector2( 182, 54 )
 
 [node name="BreakableWall" parent="." instance=ExtResource( 10 )]
 position = Vector2( 462, 106 )
@@ -101,5 +103,11 @@ position = Vector2( 34, 252 )
 [node name="MageStaff" parent="." instance=ExtResource( 18 )]
 position = Vector2( 76, 270 )
 
-[node name="Helmet" parent="." instance=ExtResource( 20 )]
-position = Vector2( 112, 70 )
+[node name="KnightHelmet" parent="." instance=ExtResource( 20 )]
+position = Vector2( 112, 210 )
+
+[node name="KnightShield" parent="." instance=ExtResource( 21 )]
+position = Vector2( 168, 278 )
+
+[node name="KnightSword" parent="." instance=ExtResource( 22 )]
+position = Vector2( 142, 102 )

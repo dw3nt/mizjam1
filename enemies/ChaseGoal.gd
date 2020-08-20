@@ -1,7 +1,5 @@
 extends EnemyStateMachine
 
-const MOVE_SPEED = 30
-
 var fsm
 var goalPath = []
 var nextPathPoint = null
@@ -42,7 +40,7 @@ func physics_process(delta):
 
 	moveDir = global_position.direction_to(nextPathPoint)
 	fsm.sprite.flip_h = moveDir.x < 0
-	fsm.velocity = moveDir * MOVE_SPEED
+	fsm.velocity = moveDir * fsm.chaseGoalSpeed
 		
 
 func _on_ChaseTargetDetect_body_entered(body):

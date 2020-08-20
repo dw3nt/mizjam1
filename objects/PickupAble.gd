@@ -10,6 +10,7 @@ onready var hitboxCollision = $Hitbox/CollisionShape2D
 
 
 func _ready():
+	print(self.name +  ' ' + str(sprite.name))
 	hitboxCollision.disabled = true
 
 

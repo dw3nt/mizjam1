@@ -71,13 +71,13 @@ tracks/0/keys = {
 "values": [ 1, 2 ]
 }
 
-[sub_resource type="CircleShape2D" id=7]
+[sub_resource type="CircleShape2D" id=5]
 radius = 32.0
 
 [sub_resource type="CircleShape2D" id=6]
 radius = 8.0
 
-[sub_resource type="CircleShape2D" id=9]
+[sub_resource type="CircleShape2D" id=7]
 radius = 44.0
 
 [sub_resource type="CircleShape2D" id=8]
@@ -117,7 +117,7 @@ script = ExtResource( 4 )
 collision_layer = 0
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="EnemyStateMachine/ChaseGoal/ChaseTargetDetect"]
-shape = SubResource( 7 )
+shape = SubResource( 5 )
 
 [node name="ChaseTarget" type="Node2D" parent="EnemyStateMachine"]
 script = ExtResource( 5 )
@@ -132,7 +132,7 @@ shape = SubResource( 6 )
 collision_layer = 0
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="EnemyStateMachine/ChaseTarget/ChaseGoalRangeDetect"]
-shape = SubResource( 9 )
+shape = SubResource( 7 )
 
 [node name="Attack" type="Node2D" parent="EnemyStateMachine"]
 script = ExtResource( 6 )

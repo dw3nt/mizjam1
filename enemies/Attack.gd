@@ -1,7 +1,5 @@
 extends EnemyStateMachine
 
-const ATTACK_TIME_MIN = 0.75
-const ATTACK_TIME_MAX = 1.5
 const CHARGE_DISTANCE = 8
 const ATTACK_DISTANCE = 6
 enum ATTACK_TWEENS { Charging, Attacking, Resetting }
@@ -10,7 +8,7 @@ var fsm
 var target = null
 var spriteStartPos = null
 var currentTween = null
-var attackTimeOffset = 0
+var currentAttackTimeOffset = 0
 var tween 
 
 onready var attackTimer = $AttackTimer
@@ -30,7 +28,7 @@ func enter_state(args):
 	tween.connect("tween_all_completed", self, "_on_Tween_tween_all_completed")
 	add_child(tween)
 	currentTween = null
-	attackTimeOffset = 0
+	currentAttackTimeOffset = 0
 	target = args[0]
 	spriteStartPos = fsm.sprite.position
 	
@@ -51,7 +49,7 @@ func targetExists():
 	
 
 func startAttackTimer():
-	attackTimer.wait_time = rand_range(ATTACK_TIME_MIN, ATTACK_TIME_MAX) + attackTimeOffset
+	attackTimer.wait_time = rand_range(fsm.minAttackSpeed, fsm.maxAttackSpeed) + currentAttackTimeOffset
 	attackTimer.start()
 
 
@@ -98,7 +96,7 @@ func _on_Tween_tween_all_completed():
 
 func _on_AttackTimer_timeout():
 	if targetExists():
-		attackTimeOffset = 2
+		currentAttackTimeOffset = fsm.attackTimeOffset
 		playChargeTween()
 
 

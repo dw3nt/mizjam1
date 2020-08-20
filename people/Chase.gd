@@ -1,7 +1,5 @@
 extends MinionStateMachine
 
-const MOVE_SPEED = 40
-
 var fsm
 var target = null
 
@@ -18,7 +16,7 @@ func physics_process(delta):
 		fsm.change_state("Wander", [])
 	else:
 		var direction = global_position.direction_to(target.global_position)
-		fsm.velocity = direction * MOVE_SPEED
+		fsm.velocity = direction * fsm.chaseSpeed
 
 
 # args[0] - chase target

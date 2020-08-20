@@ -1,6 +1,5 @@
 extends MinionStateMachine
 
-const MOVE_SPEED = 25
 const MOVE_DIRS = [
 	Vector2.UP,
 	Vector2.DOWN,
@@ -20,7 +19,7 @@ func _ready():
 
 
 func physics_process(delta):
-	fsm.velocity = moveDir * MOVE_SPEED
+	fsm.velocity = moveDir * fsm.wanderSpeed
 	if fsm.velocity == Vector2.ZERO:
 		fsm.animation.play("idle")
 	else:

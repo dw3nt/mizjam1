@@ -2,15 +2,24 @@ extends KinematicBody2D
 
 export var hp = 1
 export var atk = 2 setget setAtk
+export var wanderSpeed = 25 setget setWanderSpeed
+export var chaseSpeed = 40 setget setChaseSpeed
+export var minAttackSpeed = 0.75 setget setMinAttackSpeed
+export var maxAttackSpeed = 1.5 setget setMaxAttackSpeed
+export var attackTimeOffset = 2 setget setAttackTimeOffset
 
 onready var minionStates = $MinionStateMachine
 onready var injuredState = $MinionStateMachine/Injured
 
 
 func _ready():
-	injuredState.connect("dead", self, "_on_Injured_dead")
-
+	randomize()
 	minionStates.damage = atk
+	minionStates.wanderSpeed = wanderSpeed
+	minionStates.chaseSpeed = chaseSpeed
+	minionStates.minAttackSpeed = minAttackSpeed
+	minionStates.maxAttackSpeed = maxAttackSpeed
+	minionStates.attackTimeOffset = attackTimeOffset
 	minionStates.ready()
 
 
@@ -39,3 +48,32 @@ func setAtk(val):
 	atk = val
 	if minionStates:
 		minionStates.damage = atk
+
+func setWanderSpeed(val):
+	wanderSpeed = val
+	if minionStates:
+		minionStates.wanderSpeed = wanderSpeed
+
+
+func setChaseSpeed(val):
+	chaseSpeed = val
+	if minionStates:
+		minionStates.chaseSpeed = chaseSpeed
+
+
+func setMinAttackSpeed(val):
+	minAttackSpeed = val
+	if minionStates:
+		minionStates.minAttackSpeed = minAttackSpeed
+
+
+func setMaxAttackSpeed(val):
+	maxAttackSpeed = val
+	if minionStates:
+		minionStates.maxAttackSpeed = maxAttackSpeed
+
+
+func setAttackTimeOffset(val):
+	attackTimeOffset = val
+	if minionStates:
+		minionStates.attackTimeOffset = attackTimeOffset
