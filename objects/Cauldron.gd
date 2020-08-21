@@ -2,14 +2,124 @@ extends StaticBody2D
 
 const NO_RECIPE_LOOP_MAX = 2
 const RECIPES = [
-	# {
-	# 	"ingredients": ["Bones", "MageCloak", "MageStaff"],
-	# 	"scene": preload("res://people/MageMinion.tscn")
-	# },
-	# {
-	# 	"ingredients": ["KnightSword", "KnightHelmet", "KnightShield"],
-	# 	"scene": preload("res://people/KnightMinion.tscn")
-	# }
+	# Farmers
+	{
+		"ingredients": ["BonesAndSkull", "FarmerHat", "Staff"],
+		"scene": preload("res://people/FarmerMinion1.tscn")
+	},
+
+	# Monks
+	{
+		"ingredients": ["BonesAndSkull", "HoodedRobe", "Gloves"],
+		"scene": preload("res://people/MonkMinion1.tscn")
+	},
+	{
+		"ingredients": ["BonesAndSkull", "HoodedRobe", "Staff"],
+		"scene": preload("res://people/MonkMinion2.tscn")
+	},
+	{
+		"ingredients": ["BonesAndSkull", "Hood", "Gloves"],
+		"scene": preload("res://people/MonkMinion3.tscn")
+	},
+	{
+		"ingredients": ["BonesAndSkull", "Hood", "Staff"],
+		"scene": preload("res://people/MonkMinion4.tscn")
+	},
+	{
+		"ingredients": ["BonesAndSkull", "HoodedRobe", "Boots"],
+		"scene": preload("res://people/MonkMinion5.tscn")
+	},
+	{
+		"ingredients": ["BonesAndSkull", "Hood", "Boots"],
+		"scene": preload("res://people/MonkMinion6.tscn")
+	},
+
+	# Soliders
+	{
+		"ingredients": ["BonesAndSkull", "Belt", "Spear"],
+		"scene": preload("res://people/SoliderMinion1.tscn")
+	},
+	{
+		"ingredients": ["BonesAndSkull", "Sword", "Shield"],
+		"scene": preload("res://people/SoliderMinion2.tscn")
+	},
+	{
+		"ingredients": ["BonesAndSkull", "Gloves", "Boots"],
+		"scene": preload("res://people/SoliderMinion3.tscn")
+	},
+	{
+		"ingredients": ["BonesAndSkull", "Belt", "Gloves"],
+		"scene": preload("res://people/SoliderMinion4.tscn")
+	},
+	{
+		"ingredients": ["BonesAndSkull", "Belt", "Boots"],
+		"scene": preload("res://people/SoliderMinion5.tscn")
+	},
+	{
+		"ingredients": ["BonesAndSkull", "Belt", "Sword"],
+		"scene": preload("res://people/SoliderMinion6.tscn")
+	},
+
+	# Knights
+	{
+		"ingredients": ["Helmet", "Sword", "Shield"],
+		"scene": preload("res://people/KnightMinion1.tscn")
+	},
+	{
+		"ingredients": ["Helmet", "Spear", "Shield"],
+		"scene": preload("res://people/KnightMinion2.tscn")
+	},
+	{
+		"ingredients": ["Helmet", "Belt", "Boots"],
+		"scene": preload("res://people/KnightMinion3.tscn")
+	},
+	{
+		"ingredients": ["Helmet", "Boots", "Gloves"],
+		"scene": preload("res://people/KnightMinion4.tscn")
+	},
+	{
+		"ingredients": ["Helmet", "Belt", "Gloves"],
+		"scene": preload("res://people/KnightMinion5.tscn")
+	},
+
+
+	# Monsters
+	{
+		"ingredients": ["BonesAndSkull", "Bone", "HumanSkull"],
+		"scene": preload("res://people/MonsterMinion1.tscn")
+	},
+	{
+		"ingredients": ["MonsterSkull", "Hood", "Gloves"],
+		"scene": preload("res://people/MonsterMinion2.tscn")
+	},
+	{
+		"ingredients": ["MonsterSkull", "Hood", "Boots"],
+		"scene": preload("res://people/MonsterMinion2.tscn")
+	},
+	{
+		"ingredients": ["MonsterSkull", "Gloves", "Boots"],
+		"scene": preload("res://people/MonsterMinion3.tscn")
+	},
+	{
+		"ingredients": ["MonsterSkull", "Belt", "Gloves"],
+		"scene": preload("res://people/MonsterMinion4.tscn")
+	},
+	{
+		"ingredients": ["MonsterSkull", "Boots", "Belt"],
+		"scene": preload("res://people/MonsterMinion4.tscn")
+	},
+	{
+		"ingredients": ["MonsterSkull", "Belt", "Spear"],
+		"scene": preload("res://people/MonsterMinion5.tscn")
+	},
+	{
+		"ingredients": ["MonsterSkull", "Sword", "Shield"],
+		"scene": preload("res://people/MonsterMinion6.tscn")
+	},
+	{
+		"ingredients": ["MonsterSkull", "FarmerHat", "Staff"],
+		"scene": preload("res://people/MonsterMinion7.tscn")
+	},
 ]
 
 export(NodePath) var minionWrapPath

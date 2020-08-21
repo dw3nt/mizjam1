@@ -2,13 +2,13 @@
 
 [ext_resource path="res://people/Minion.tscn" type="PackedScene" id=1]
 
-[node name="FarmerMinion1" instance=ExtResource( 1 )]
-hp = 3
-atk = 1
+[node name="KnightMinion4" instance=ExtResource( 1 )]
+hp = 10
+atk = 5
 wanderSpeed = 20
-chaseSpeed = 30
+chaseSpeed = 35
 minAttackSpeed = 1.0
-maxAttackSpeed = 2.0
+maxAttackSpeed = 1.75
 
 [node name="Sprite" parent="." index="2"]
-region_rect = Rect2( 400, 16, 16, 16 )
+region_rect = Rect2( 480, 0, 16, 16 )

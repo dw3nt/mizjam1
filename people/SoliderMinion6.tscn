@@ -1,0 +1,10 @@
+[gd_scene load_steps=2 format=2]
+
+[ext_resource path="res://people/Minion.tscn" type="PackedScene" id=1]
+
+[node name="SoliderMinion6" instance=ExtResource( 1 )]
+hp = 7
+atk = 3
+
+[node name="Sprite" parent="." index="2"]
+region_rect = Rect2( 448, 32, 16, 16 )
