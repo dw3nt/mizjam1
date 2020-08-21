@@ -6,7 +6,7 @@ export var wanderSpeed = 25 setget setWanderSpeed
 export var chaseSpeed = 40 setget setChaseSpeed
 export var minAttackSpeed = 0.75 setget setMinAttackSpeed
 export var maxAttackSpeed = 1.5 setget setMaxAttackSpeed
-export var attackTimeOffset = 2 setget setAttackTimeOffset
+export var attackTimeOffset = 2.0 setget setAttackTimeOffset
 
 onready var minionStates = $MinionStateMachine
 onready var injuredState = $MinionStateMachine/Injured

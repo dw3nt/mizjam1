@@ -2,14 +2,14 @@ extends StaticBody2D
 
 const NO_RECIPE_LOOP_MAX = 2
 const RECIPES = [
-	{
-		"ingredients": ["Bones", "MageCloak", "MageStaff"],
-		"scene": preload("res://people/MageMinion.tscn")
-	},
-	{
-		"ingredients": ["KnightSword", "KnightHelmet", "KnightShield"],
-		"scene": preload("res://people/KnightMinion.tscn")
-	}
+	# {
+	# 	"ingredients": ["Bones", "MageCloak", "MageStaff"],
+	# 	"scene": preload("res://people/MageMinion.tscn")
+	# },
+	# {
+	# 	"ingredients": ["KnightSword", "KnightHelmet", "KnightShield"],
+	# 	"scene": preload("res://people/KnightMinion.tscn")
+	# }
 ]
 
 export(NodePath) var minionWrapPath

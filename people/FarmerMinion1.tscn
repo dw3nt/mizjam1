@@ -1,0 +1,18 @@
+[gd_scene load_steps=2 format=2]
+
+[ext_resource path="res://people/Minion.tscn" type="PackedScene" id=1]
+
+[node name="FarmerMinion1" instance=ExtResource( 1 )]
+hp = 3
+atk = 1
+wanderSpeed = 20
+chaseSpeed = 30
+minAttackSpeed = 1.0
+maxAttackSpeed = 2.0
+
+[node name="Sprite" parent="." index="2"]
+region_rect = Rect2( 400, 16, 16, 16 )
+
+[node name="MinionStateMachine" parent="." index="3"]
+animationPath = NodePath("../../Farmer1/AnimationPlayer")
+spritePath = NodePath("../../Farmer1/Sprite")
