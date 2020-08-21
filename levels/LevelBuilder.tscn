@@ -1,4 +1,4 @@
-[gd_scene load_steps=25 format=2]
+[gd_scene load_steps=11 format=2]
 
 [ext_resource path="res://FloorTiles.tscn" type="PackedScene" id=1]
 [ext_resource path="res://ui/UI.tscn" type="PackedScene" id=2]
@@ -8,22 +8,8 @@
 [ext_resource path="res://levels/GraveRoom.tscn" type="PackedScene" id=6]
 [ext_resource path="res://levels/CastleRoom.tscn" type="PackedScene" id=7]
 [ext_resource path="res://WallsTileMap.tscn" type="PackedScene" id=8]
-[ext_resource path="res://objects/ingredients/BonesAndSkull.tscn" type="PackedScene" id=9]
-[ext_resource path="res://objects/ingredients/Hood.tscn" type="PackedScene" id=10]
-[ext_resource path="res://objects/ingredients/Boots.tscn" type="PackedScene" id=11]
-[ext_resource path="res://objects/ingredients/Belt.tscn" type="PackedScene" id=12]
-[ext_resource path="res://objects/ingredients/Spear.tscn" type="PackedScene" id=13]
-[ext_resource path="res://objects/ingredients/MonsterSkull.tscn" type="PackedScene" id=14]
-[ext_resource path="res://objects/ingredients/FarmerHat.tscn" type="PackedScene" id=15]
-[ext_resource path="res://objects/ingredients/Staff.tscn" type="PackedScene" id=16]
-[ext_resource path="res://objects/ingredients/Bone.tscn" type="PackedScene" id=17]
-[ext_resource path="res://objects/ingredients/HoodedRobe.tscn" type="PackedScene" id=18]
-[ext_resource path="res://objects/ingredients/Gloves.tscn" type="PackedScene" id=19]
-[ext_resource path="res://objects/ingredients/Helmet.tscn" type="PackedScene" id=20]
-[ext_resource path="res://objects/ingredients/Sword.tscn" type="PackedScene" id=21]
-[ext_resource path="res://objects/ingredients/Shield.tscn" type="PackedScene" id=22]
-[ext_resource path="res://objects/ingredients/HumanSkull.tscn" type="PackedScene" id=23]
-[ext_resource path="res://objects/PickupAble.gd" type="Script" id=24]
+[ext_resource path="res://objects/DiggableDirt.tscn" type="PackedScene" id=9]
+[ext_resource path="res://objects/Shovel.tscn" type="PackedScene" id=10]
 
 [node name="LevelBuilder" type="Node2D"]
 script = ExtResource( 4 )
@@ -156,62 +142,8 @@ editor_draw_drag_margin = true
 
 [node name="Items" type="Node2D" parent="."]
 
-[node name="BonesAndSkull" parent="Items" instance=ExtResource( 9 )]
-position = Vector2( 14, 0 )
-script = ExtResource( 24 )
+[node name="DiggableDirt" parent="Items" instance=ExtResource( 9 )]
+position = Vector2( -126, 112 )
 
-[node name="HumanSkull" parent="Items" instance=ExtResource( 23 )]
-position = Vector2( -14, 0 )
-script = ExtResource( 24 )
-
-[node name="Bone" parent="Items" instance=ExtResource( 17 )]
-position = Vector2( 42, 0 )
-script = ExtResource( 24 )
-
-[node name="MonsterSkull" parent="Items" instance=ExtResource( 14 )]
-position = Vector2( 70, -28 )
-script = ExtResource( 24 )
-
-[node name="FarmerHat" parent="Items" instance=ExtResource( 15 )]
-position = Vector2( 70, 0 )
-script = ExtResource( 24 )
-
-[node name="Staff" parent="Items" instance=ExtResource( 16 )]
-position = Vector2( 70, 28 )
-script = ExtResource( 24 )
-
-[node name="HoodedRobe" parent="Items" instance=ExtResource( 18 )]
-position = Vector2( 42, 28 )
-script = ExtResource( 24 )
-
-[node name="Hood" parent="Items" instance=ExtResource( 10 )]
-position = Vector2( 14, 28 )
-script = ExtResource( 24 )
-
-[node name="Gloves" parent="Items" instance=ExtResource( 19 )]
-position = Vector2( -14, 28 )
-script = ExtResource( 24 )
-
-[node name="Boots" parent="Items" instance=ExtResource( 11 )]
-position = Vector2( -42, 28 )
-script = ExtResource( 24 )
-
-[node name="Belt" parent="Items" instance=ExtResource( 12 )]
-position = Vector2( -42, 0 )
-script = ExtResource( 24 )
-
-[node name="Spear" parent="Items" instance=ExtResource( 13 )]
-position = Vector2( 42, -28 )
-script = ExtResource( 24 )
-
-[node name="Sword" parent="Items" instance=ExtResource( 21 )]
-position = Vector2( 14, -28 )
-script = ExtResource( 24 )
-
-[node name="Shield" parent="Items" instance=ExtResource( 22 )]
-position = Vector2( -14, -28 )
-script = ExtResource( 24 )
-
-[node name="Helmet" parent="Items" instance=ExtResource( 20 )]
-position = Vector2( -42, -28 )
-script = ExtResource( 24 )
+[node name="Shovel" parent="Items" instance=ExtResource( 10 )]
+position = Vector2( -84, 140 )
