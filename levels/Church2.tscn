@@ -1,0 +1,96 @@
+[gd_scene load_steps=9 format=2]
+
+[ext_resource path="res://objects/ingredients/Gloves.tscn" type="PackedScene" id=1]
+[ext_resource path="res://levels/Room.tscn" type="PackedScene" id=2]
+[ext_resource path="res://objects/ingredients/Boots.tscn" type="PackedScene" id=3]
+[ext_resource path="res://objects/ingredients/BonesAndSkull.tscn" type="PackedScene" id=4]
+[ext_resource path="res://objects/DiggableDirt.tscn" type="PackedScene" id=5]
+[ext_resource path="res://objects/Shovel.tscn" type="PackedScene" id=6]
+[ext_resource path="res://objects/ingredients/Staff.tscn" type="PackedScene" id=7]
+[ext_resource path="res://objects/ingredients/HoodedRobe.tscn" type="PackedScene" id=8]
+
+[node name="Church2" instance=ExtResource( 2 )]
+
+[node name="TileMap" parent="." index="0"]
+tile_data = PoolIntArray( -393223, 0, 393216, -393222, 0, 393217, -393221, 0, 393217, -393220, 0, 393217, -393219, 0, 393217, -393218, 0, 393217, -393217, 0, 393218, -327687, 0, 458752, -327686, 1, 2, -327684, 1, 2, -327682, 1, 2, -262151, 0, 458752, -196615, 0, 458752, -131079, 0, 524288, -131078, 0, 524289, -131077, 0, 524289, -131076, 0, 524289, -131075, 0, 524289, -131074, 0, 524289, -131073, 0, 524290, 65531, 1, 1, 65534, 1, 1, 1, 1, 1, 4, 1, 1, 7, 1, 1, 262139, 1, 0, 262142, 1, 0, 196609, 1, 0, 196612, 1, 0, 196615, 1, 0, 458747, 1, 1, 458750, 1, 1, 393217, 1, 1, 393220, 1, 1, 393223, 1, 1 )
+
+[node name="Farm" parent="." index="2"]
+tile_data = PoolIntArray(  )
+
+[node name="BonesAndSkull" parent="." index="3" instance=ExtResource( 4 )]
+position = Vector2( 84, -70 )
+
+[node name="BonesAndSkull3" parent="." index="4" instance=ExtResource( 4 )]
+position = Vector2( 0, 42 )
+
+[node name="BonesAndSkull2" parent="." index="5" instance=ExtResource( 4 )]
+position = Vector2( -98, 56 )
+
+[node name="Shovel" parent="." index="6" instance=ExtResource( 6 )]
+position = Vector2( -70, -42 )
+
+[node name="HoodedRobe" parent="." index="7" instance=ExtResource( 8 )]
+position = Vector2( 28, -112 )
+
+[node name="Boots" parent="." index="8" instance=ExtResource( 3 )]
+position = Vector2( 56, -28 )
+
+[node name="Gloves" parent="." index="9" instance=ExtResource( 1 )]
+position = Vector2( -42, -112 )
+
+[node name="Staff" parent="." index="10" instance=ExtResource( 7 )]
+position = Vector2( 42, 112 )
+
+[node name="DiggableDirt" parent="." index="11" instance=ExtResource( 5 )]
+position = Vector2( -84, -70 )
+
+[node name="DiggableDirt2" parent="." index="12" instance=ExtResource( 5 )]
+position = Vector2( -56, -70 )
+
+[node name="DiggableDirt3" parent="." index="13" instance=ExtResource( 5 )]
+position = Vector2( -28, -70 )
+
+[node name="DiggableDirt4" parent="." index="14" instance=ExtResource( 5 )]
+position = Vector2( -68, 14 )
+
+[node name="DiggableDirt5" parent="." index="15" instance=ExtResource( 5 )]
+position = Vector2( -28, 14 )
+
+[node name="DiggableDirt6" parent="." index="16" instance=ExtResource( 5 )]
+position = Vector2( 14, 14 )
+
+[node name="DiggableDirt7" parent="." index="17" instance=ExtResource( 5 )]
+position = Vector2( 56, 14 )
+
+[node name="DiggableDirt8" parent="." index="18" instance=ExtResource( 5 )]
+position = Vector2( 98, 14 )
+
+[node name="DiggableDirt9" parent="." index="19" instance=ExtResource( 5 )]
+position = Vector2( 98, 56 )
+
+[node name="DiggableDirt10" parent="." index="20" instance=ExtResource( 5 )]
+position = Vector2( 56, 56 )
+
+[node name="DiggableDirt11" parent="." index="21" instance=ExtResource( 5 )]
+position = Vector2( 14, 56 )
+
+[node name="DiggableDirt12" parent="." index="22" instance=ExtResource( 5 )]
+position = Vector2( -28, 56 )
+
+[node name="DiggableDirt13" parent="." index="23" instance=ExtResource( 5 )]
+position = Vector2( -70, 56 )
+
+[node name="DiggableDirt14" parent="." index="24" instance=ExtResource( 5 )]
+position = Vector2( -70, 98 )
+
+[node name="DiggableDirt15" parent="." index="25" instance=ExtResource( 5 )]
+position = Vector2( -28, 98 )
+
+[node name="DiggableDirt16" parent="." index="26" instance=ExtResource( 5 )]
+position = Vector2( 14, 98 )
+
+[node name="DiggableDirt17" parent="." index="27" instance=ExtResource( 5 )]
+position = Vector2( 56, 98 )
+
+[node name="DiggableDirt18" parent="." index="28" instance=ExtResource( 5 )]
+position = Vector2( 98, 98 )

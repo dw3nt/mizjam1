@@ -1,4 +1,4 @@
-[gd_scene load_steps=25 format=2]
+[gd_scene load_steps=24 format=2]
 
 [ext_resource path="res://people/Player.tscn" type="PackedScene" id=1]
 [ext_resource path="res://enemies/EnemySpawner.tscn" type="PackedScene" id=2]
@@ -23,7 +23,6 @@
 [ext_resource path="res://objects/ingredients/HoodedRobe.tscn" type="PackedScene" id=21]
 [ext_resource path="res://objects/ingredients/Belt.tscn" type="PackedScene" id=22]
 [ext_resource path="res://objects/ingredients/Staff.tscn" type="PackedScene" id=23]
-[ext_resource path="res://objects/PickupAble.gd" type="Script" id=24]
 
 [node name="Playground" type="Node2D"]
 script = ExtResource( 5 )
@@ -65,60 +64,45 @@ position = Vector2( 140, 154 )
 
 [node name="BonesAndSkull" parent="Ingredients" instance=ExtResource( 10 )]
 position = Vector2( 14, 112 )
-script = ExtResource( 24 )
 
 [node name="HumanSkull" parent="Ingredients" instance=ExtResource( 4 )]
 position = Vector2( 56, 112 )
-script = ExtResource( 24 )
 
 [node name="Bone" parent="Ingredients" instance=ExtResource( 6 )]
 position = Vector2( 98, 112 )
-script = ExtResource( 24 )
 
 [node name="MonsterSkull" parent="Ingredients" instance=ExtResource( 19 )]
 position = Vector2( 140, 112 )
-script = ExtResource( 24 )
 
 [node name="FarmerHat" parent="Ingredients" instance=ExtResource( 14 )]
 position = Vector2( 182, 112 )
-script = ExtResource( 24 )
 
 [node name="Staff" parent="Ingredients" instance=ExtResource( 23 )]
 position = Vector2( 34, 70 )
-script = ExtResource( 24 )
 
 [node name="HoodedRobe" parent="Ingredients" instance=ExtResource( 21 )]
 position = Vector2( 42, 34 )
-script = ExtResource( 24 )
 
 [node name="Hood" parent="Ingredients" instance=ExtResource( 17 )]
 position = Vector2( 70, 70 )
-script = ExtResource( 24 )
 
 [node name="Gloves" parent="Ingredients" instance=ExtResource( 12 )]
 position = Vector2( 114, 70 )
-script = ExtResource( 24 )
 
 [node name="Boots" parent="Ingredients" instance=ExtResource( 16 )]
 position = Vector2( 160, 70 )
-script = ExtResource( 24 )
 
 [node name="Belt" parent="Ingredients" instance=ExtResource( 22 )]
 position = Vector2( 196, 70 )
-script = ExtResource( 24 )
 
 [node name="Spear" parent="Ingredients" instance=ExtResource( 18 )]
 position = Vector2( 84, 34 )
-script = ExtResource( 24 )
 
 [node name="Sword" parent="Ingredients" instance=ExtResource( 20 )]
 position = Vector2( 122, 34 )
-script = ExtResource( 24 )
 
 [node name="Shield" parent="Ingredients" instance=ExtResource( 8 )]
 position = Vector2( 160, 34 )
-script = ExtResource( 24 )
 
 [node name="Helmet" parent="Ingredients" instance=ExtResource( 13 )]
 position = Vector2( 196, 34 )
-script = ExtResource( 24 )

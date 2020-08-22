@@ -1,0 +1,59 @@
+[gd_scene load_steps=8 format=2]
+
+[ext_resource path="res://levels/Room.tscn" type="PackedScene" id=1]
+[ext_resource path="res://objects/ingredients/MonsterSkull.tscn" type="PackedScene" id=2]
+[ext_resource path="res://objects/ingredients/Bone.tscn" type="PackedScene" id=3]
+[ext_resource path="res://objects/LockedDoor.tscn" type="PackedScene" id=4]
+[ext_resource path="res://objects/ingredients/Sword.tscn" type="PackedScene" id=5]
+[ext_resource path="res://objects/DiggableDirt.tscn" type="PackedScene" id=6]
+[ext_resource path="res://objects/ingredients/Spear.tscn" type="PackedScene" id=7]
+
+[node name="Monster1" instance=ExtResource( 1 )]
+
+[node name="TileMap" parent="." index="0"]
+tile_data = PoolIntArray( -458760, 0, 262144, -458753, 0, 262146, -393224, 0, 262144, -393217, 0, 262146, -327688, 0, 262144, -327681, 0, 262146, -262152, 0, 262144, -262145, 0, 262146, -196616, 0, 262144, -196609, 0, 262146, -131080, 0, 262144, -131073, 0, 262146, -65544, 0, 262144, -65537, 0, 262146 )
+
+[node name="Farm" parent="." index="2"]
+tile_data = PoolIntArray( -458760, 0, 131077, -458759, 0, 131077, -458758, 0, 131078, -458757, 0, 131077, -458756, 0, 131077, -458755, 0, 131078, -458754, 0, 131078, -458753, 0, 131077, -393213, 0, 65537, -65544, 0, 131077, -65543, 0, 131078, -65542, 0, 131078, -65539, 0, 131077, -65538, 0, 131078, -65537, 0, 131077, -131065, 0, 65537, 131066, 0, 65537, 65539, 0, 65537, 262151, 0, 65537, 393217, 0, 65537, 524283, 0, 65537 )
+
+[node name="LockedDoor" parent="." index="3" instance=ExtResource( 4 )]
+position = Vector2( -70, -28 )
+
+[node name="MonsterSkull" parent="." index="4" instance=ExtResource( 2 )]
+position = Vector2( -84, -84 )
+
+[node name="MonsterSkull2" parent="." index="5" instance=ExtResource( 2 )]
+position = Vector2( -28, -84 )
+
+[node name="Bone" parent="." index="6" instance=ExtResource( 3 )]
+position = Vector2( -54, -76 )
+
+[node name="Bone2" parent="." index="7" instance=ExtResource( 3 )]
+position = Vector2( -70, -56 )
+
+[node name="Bone3" parent="." index="8" instance=ExtResource( 3 )]
+position = Vector2( -36, -56 )
+
+[node name="DiggableDirt" parent="." index="9" instance=ExtResource( 6 )]
+position = Vector2( 42, -112 )
+
+[node name="DiggableDirt2" parent="." index="10" instance=ExtResource( 6 )]
+position = Vector2( 84, -42 )
+
+[node name="DiggableDirt3" parent="." index="11" instance=ExtResource( 6 )]
+position = Vector2( 28, -20 )
+
+[node name="DiggableDirt4" parent="." index="12" instance=ExtResource( 6 )]
+position = Vector2( -14, 58 )
+
+[node name="DiggableDirt6" parent="." index="13" instance=ExtResource( 6 )]
+position = Vector2( -84, 50 )
+
+[node name="DiggableDirt5" parent="." index="14" instance=ExtResource( 6 )]
+position = Vector2( 70, 42 )
+
+[node name="Sword" parent="." index="15" instance=ExtResource( 5 )]
+position = Vector2( 100, -76 )
+
+[node name="Spear" parent="." index="16" instance=ExtResource( 7 )]
+position = Vector2( -38, 42 )

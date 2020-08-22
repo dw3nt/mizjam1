@@ -1,6 +1,6 @@
 extends KinematicBody2D
 
-const MOVE_SPEED = 100
+const MOVE_SPEED = 200
 
 var pickUpInputMap = {}
 var inputDirs = {
